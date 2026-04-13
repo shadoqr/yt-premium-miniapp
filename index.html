@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+  <title>YouTube Premium Shop</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f10;
+      color: #fff;
+      padding: 18px;
+    }
+    .card {
+      max-width: 440px;
+      margin: 0 auto;
+      background: #1b1b1d;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+    }
+    .banner {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 14px;
+      object-fit: cover;
+      max-height: 220px;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 8px 0;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #22c55e;
+      margin-bottom: 14px;
+    }
+    .features {
+      background: #262629;
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    input, select, button, a.linkbtn {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 13px 14px;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+    input, select {
+      background: #2a2a2d;
+      color: #fff;
+    }
+    .green { background: #22c55e; color: #fff; font-weight: bold; }
+    .red { background: #ef4444; color: #fff; font-weight: bold; }
+    .blue { background: #3b82f6; color: #fff; font-weight: bold; }
+    .linkbtn {
+      display: block;
+      text-decoration: none;
+      text-align: center;
+    }
+    .paybox {
+      background: #262629;
+      border-radius: 14px;
+      padding: 12px;
+      margin-top: 12px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .small {
+      color: #bdbdbd;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img
+      class="banner"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Youtube_premium_logo.svg/1280px-Youtube_premium_logo.svg.png"
+      alt="YouTube Premium"
+    />
+
+    <h1>🔥 YouTube Premium</h1>
+    <div class="price">Rs.200</div>
+
+    <div class="features">
+      🎬 Ads නැතුව YouTube<br>
+      🎵 Background play<br>
+      📥 Download support<br>
+      📺 YouTube Music Premium included<br>
+      ⚡ Fast activation<br>
+      🔒 Safe service
+    </div>
+
+    <a class="linkbtn green" href="https://t.me/SHADOW_x23" target="_blank">🛒 BUY</a>
+    <a class="linkbtn red" href="https://t.me/SHADOW_X_PROOF" target="_blank">📸 PROOF</a>
+
+    <input id="name" placeholder="Your Name" />
+    <input id="gmail" placeholder="Your Gmail" />
+
+    <select id="payment">
+      <option value="HNB Bank">HNB Bank</option>
+      <option value="iPay">iPay</option>
+    </select>
+
+    <div class="paybox">
+      💳 <b>HNB Bank</b><br />
+      Account: 182020042328<br />
+      Name: H.G.G Sanjeewani
+    </div>
+
+    <div class="paybox">
+      📱 <b>iPay</b><br />
+      Number: 0772959481
+    </div>
+
+    <button class="blue" onclick="submitOrder()">✅ Submit Order</button>
+
+    <div class="small">
+      Submit කරාට පස්සේ bot chat එකට screenshot එක send කරන්න.
+    </div>
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    function submitOrder() {
+      const name = document.getElementById("name").value.trim();
+      const gmail = document.getElementById("gmail").value.trim();
+      const payment = document.getElementById("payment").value;
+
+      if (!name || !gmail) {
+        alert("Name and Gmail required");
+        return;
+      }
+
+      const data = { name, gmail, payment };
+      tg.sendData(JSON.stringify(data));
+    }
+  </script>
+</body>
+</html>
